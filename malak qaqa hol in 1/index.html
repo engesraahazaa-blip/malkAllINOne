@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" > <!-- لغة المستند -->
+<head>
+    <meta charset="UTF-8"> <!-- ضبط مجموعة الأحرف المستخدمة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ملاءمة العرض لأجهزة المحمول -->
+    <title>HOLE IN OUN</title> <!-- عنوان الصفحة -->
+    <!-- استايل للشريط والخلفية -->
+    <style>
+        body, html {
+            margin: 0; /* إزالة الهوامش*/
+            padding: 0;/* إزالة الحشوات */
+            height: 100%; /* ضبط ارتفاع الصفحة إلى 100% */
+            font-family: Arial, sans-serif; /* ضبط نوع الخط */
+        }
+        .popup-overlay.visible {
+            display: block; /* إظهار الطبقة عند إضافة الفئة 'visible' */
+        }
+        body {
+            font-size: 16px;
+        }
+        .btn-container {
+            position: fixed; /* يضمن بقاء الأزرار في مكانها عند التمرير */
+            top: 50%; /* يضع الأزرار في منتصف الجهة اليمنى رأسياً */
+            right: 0; /* يضع الأزرار في أقصى الجهة اليمنى */
+            transform: translateY(-50%); /* لضبط موقع الأزرار رأسياً */
+        }
+        .btn {
+            background-color: green; /* لون الخلفية الأخضر */
+            color: white; /* لون النص الأبيض */
+            border: none; /* إزالة الحدود */
+            padding: 10px 10px; /* المسافة الداخلية */
+            cursor: pointer; /* شكل المؤشر عند التمرير فوق الزر */
+            margin: 1px; /* المسافة الخارجية */
+        }
+        .btn:hover {
+            opacity: 0.8; /* خفض الشفافية عند التمرير */
+        }
+        .navbar {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            background-color: #15411296; 
+            padding: 10px 10px; 
+            position: fixed; 
+            top: 0; /* ضبط الشريط في أعلى الصفحة */
+            width: 100%;  /*ضبط عرض الشريط ليتناسب مع عرض الصفحة */
+            box-shadow: 0 2px 4px rgba(204, 200, 200, 0.1); /* إضافة ظل للشريط */
+            z-index: 1000; /*تحديد ترتيب الز-index لضمان بقاء الشريط فوق جميع العناصر الأخرى */
+        }
+
+        .logo {
+            width: 70px; /* عرض الشعار*/
+            height: 70px; /*ارتفاع الشعار */
+            border-radius: 80%;/* جعل الشعار دائري الشكل */
+        }
+        
+
+        .nav-links a {
+            color: rgb(255, 255, 255); /* ضبط لون الروابط */
+            text-decoration: none; /* إزالة التزيين عن النص */
+            padding: 0 15px; /* إضافة حشوات للروابط */
+            transition: color 0.3s;  /*ضبط تأثير الانتقال على اللون */
+            text-align: rtl;
+        }
+
+        .nav-links a:hover {
+            color: rgb(10, 207, 69); /*لون الروابط عند مرور المؤشر */
+            transform: scale(2.2); /*تكبير النص عند مرور المؤشر */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);/*- إضافة ظل للنص */
+        }
+        
+        .hero {
+            height:100vh;
+            width: 100%;
+            background-image: url('1.png') no-repeat center center fixed; /* ضبط صورة الخلفية */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 100px; /* تقليل المسافة إلى 10px */
+        }
+
+        .features {
+            display: flex; /* استخدام نظام الشبكة المرنة */
+            justify-content: space-around; /* توزيع العناصر بالتساوي حول المساحة المتاحة */
+            flex-wrap: wrap;  /*التفاف العناصر عند نقص المساحة */
+            padding: 60px; /* إضافة حشوات للقسم */
+           
+        }
+        .features-title {
+    font-size: 2.5em; /* حجم الخط */
+    color: #267020; /* لون النص */
+    text-align: center; /* محاذاة النص في الوسط */
+    margin-bottom: 40px; /* مسافة أسفل العنوان */
+    font-weight: bold; /* جعل النص عريض */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* إضافة ظل للنص */
+}
+
+        .features h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .feature-box {
+            width: 22%;/*  عرض كل صندوق ميزة */
+            text-align: center; /* محاذاة النص في وسط الصندوق */
+            margin-bottom: 20px; /* إضافة مسافة أسفل كل صندوق */
+            transition: transform 0.3s;
+        }
+
+        .feature-box img {
+            width: 300px;  /*عرض الصور في الصناديق */
+            height:  300px; /*ضبط ارتفاع الصور تلقائيًا */
+            border-radius: 10px;  /*جعل زوايا الصور مدورة */
+        }
+
+        .feature-box p {
+            margin-top: 100px; /*إضافة مسافة أعلى النص */
+        }
+        .feature-box:hover {
+            transform: scale(1.1);
+        }
+        .about {
+    background-color: #267020; /* لون الخلفية الأخضر */
+    color: white; /* لون النص الأبيض */
+    padding: 30px; /* حشوات للقسم */
+    text-align: center; /* محاذاة النص في المركز */
+}
+
+.about-box {
+    background-color: white; /* لون المربع الأبيض */
+    color: black; /* لون النص داخل المربع الأبيض */
+    padding: 30px; /* حشوات للمربع */
+    border-radius: 10px; /* زوايا مدورة للمربع */
+    display: inline-block; /* عرض المربع كعنصر داخلي */
+    text-align: right; /* محاذاة النص في داخل المربع */
+    font-size: 1.5em; /* حجم الخط */
+    width: 60%; /* عرض المربع ليكون مناسباً */
+    margin-top: 9px; /* مسافة علوية للمربع */
+}
+.gallery {
+    display: flex; /* عرض العناصر بجانب بعضها */
+    justify-content: space-around; /* توزيع العناصر بالتساوي */
+    flex-wrap: wrap; /* التفاف العناصر عند نقص المساحة */
+    padding: 60px; /* إضافة حشوات للقسم */
+    text-align: center; /* محاذاة النصوص في الوسط */
+}
+
+.gallery-title {
+    font-size: 2.5em; /* حجم الخط */
+    color: #267020; /* لون النص */
+    margin-bottom: 40px; /* مسافة أسفل العنوان */
+    font-weight: bold; /* جعل النص عريض */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* إضافة ظل للنص */
+    width: 100%;
+}
+
+.gallery-box {
+    width: 22%; /* عرض كل صندوق صورة */
+    margin-bottom: 20px; /* إضافة مسافة أسفل كل صندوق */
+    border: 2px solid #285c26; /* إطار حول الصندوق */
+    border-radius: 10px; /* زوايا مدورة للصندوق */
+    padding: 10px; /* حشوات داخل الصندوق */
+    transition: transform 0.3s;
+}
+
+.gallery-box img {
+    width: 80%; /* عرض الصورة بالكامل */
+    height: 80%; /* ضبط ارتفاع الصورة تلقائيًا */
+    border-radius: 10px; /* زوايا مدورة للصورة */
+}
+
+.gallery-box p {
+    margin-top: 10px; /* مسافة أعلى النص */
+}
+
+.gallery-box button {
+    background-color: #295526; /* لون خلفية الزر */
+    color: white; /* لون النص */
+    padding: 10px 20px; /* حشوات داخل الزر */
+    border: none; /* إزالة الحدود */
+    border-radius: 5px; /* زوايا مدورة للزر */
+    cursor: pointer; /* تغيير شكل المؤشر عند التمرير فوق الزر */
+    transition: background-color 0.3s;
+}
+
+.gallery-box button:hover {
+    background-color: #1e5a17; /* لون الزر عند التمرير فوقه */
+}
+
+.gallery-box:hover {
+    transform: scale(1.05); /* تكبير الصندوق عند التمرير فوقه */
+}
+body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background-color: green; /* لون خلفية الفوتر أخضر */
+            color: white; /* لون النص في الفوتر أبيض */
+            text-align: center; /* محاذاة النص إلى الوسط */
+            padding: 40px 0; /* المسافة الداخلية للفوتر */
+            width: 100%; /* يجعل الفوتر يأخذ عرض الصفحة بالكامل */
+            margin-top: auto; /* يضمن بقاء الفوتر في نهاية الصفحة */
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .contact-button {
+            background-color: white; /* لون خلفية الزر أبيض */
+            color: green; /* لون النص أخضر */
+            border: 2px solid green; /* حواف الزر باللون الأخضر */
+            padding: 10px 20px; /* المسافة الداخلية للزر */
+            text-decoration: none; /* إزالة الخط السفلي */
+            border-radius: 5px; /* حواف مستديرة */
+            font-size: 16px; /* حجم الخط */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            transition: background-color 0.3s, color 0.3s; /* تأثير الانتقال */
+        }
+        .contact-button:hover {
+            background-color: rgba(14, 39, 14, 0.404); /* لون خلفية الزر عند التمرير */
+            color: white; /* لون النص عند التمرير */
+        }
+/* الأنماط الافتراضية للوضع الصباحي */
+body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    /* الأنماط للوضع الليلي */
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    /* تنسيق الزر فقط */
+    #toggleButton {
+      padding: 10px 20px;
+      background-color: #259921; /* لون أزرق */
+      color: white; /* لون النص */
+      border: none; /* إزالة الحدود */
+      border-radius: 5px; /* حواف مستديرة */
+      cursor: pointer; /* تغيير مؤشر الفأرة عند التمرير */
+      font-size: 16px; /* حجم النص */
+    }
+
+    #toggleButton:hover {
+      background-color: #109632; /* لون عند التمرير فوق الزر */
+    }
+    </style>
+</head>
+<body>
+     <!-- حاوية الأزرار لتكبير وتصغير حجم الخط -->
+     <div class="btn-container">
+        <button class="btn" onclick="changeFontSize(1)">+</button>
+        <button class="btn" onclick="changeFontSize(-1)">-</button>
+    </div>
+    <script>
+        /* دالة لتغيير حجم الخط */
+        function changeFontSize(step) {
+            const body = document.body;
+            const currentSize = parseFloat(window.getComputedStyle(body).fontSize); // الحصول على حجم الخط الحالي
+            body.style.fontSize = (currentSize + step) + 'px'; // تعديل حجم الخط
+        }
+    </script>
+    <!-- بداية شريط التنقل العلوي -->
+    <div class="navbar">
+        <!-- الشعار دائري على الجهة اليسرى -->
+        <img src="2.png" alt="شعار الشركة" class="logo"> <!-- شعار الشركة -->
+        <!-- روابط التنقل -->
+        <div class="nav-links">
+            <a href="hom .html">Home</a> <!-- رابط الصفحة الرئيسية -->
+            <a href="activities.html"> Activities </a> 
+            <a href="utilities.html">utilities </a> 
+            <a href="five rounds.html">  Five rounds </a>
+            <a href="contact.html"> contact </a>
+            
+        </div>
+    </div>
+    <!-- نهاية شريط التنقل العلوي -->
+    <!-- بداية قسم البطل -->
+    <div class="hero">
+       <img src="1.png" style="height: auto; width: 100%;">
+    </div>
+    <!-- نهاية قسم البطل -->
+
+    <!-- بداية قسم الميزات -->
+    <h1 class="features-title"> ما يميزنا </h1>
+    <div class="features" id="features">
+        <!-- صندوق ميزة 1 -->
+        <div class="feature-box">
+            <img src="5.png" alt="ميزة 1"> <!-- صورة ميزة 1 -->
+            <p>يقدم منتجعنا دروس جولف عالية الجودة لكل المستويات</p> <!-- نص شرح ميزة 1 -->
+        </div>
+        <!-- صندوق ميزة 2 -->
+        <div class="feature-box">
+            <img src="6.png" alt="ميزة 2"> <!-- صورة ميزة 2 -->
+            <p> يقدم منتجعنا خمس جولات جولف واقامة مميزة مميزة</p> <!-- نص شرح ميزة 2 -->
+        </div>
+        <!-- صندوق ميزة 3 -->
+        <div class="feature-box">
+            <img src="8.png" alt="ميزة 3"> <!-- صورة ميزة 3 -->
+            <p>ينظم منتجعنا فعاليات بطولات جولف ممتعة لكل المستويات</p> <!-- نص شرح ميزة 3 -->
+        </div>
+        <!-- صندوق ميزة 4 -->
+        <div class="feature-box">
+            <img src="9.png" alt="ميزة 4"> <!-- صورة ميزة 4 -->
+            <p>يوفر منتجعنا نظام حجز إلكتروني سهل وسريع</p> <!-- نص شرح ميزة 4 -->
+        </div>
+    </div>
+    <!-- نهاية قسم الميزات -->
+    <div class="about" id="about" >
+    </div>
+    <div class="about.box">
+    </div>
+    <!-- بداية قسم "نبذة عنا" -->
+<div class="about" id="about">
+    <div class="about-box">
+        <p>قصتنا </p>
+        <p>في منتجعنا للجولف نقدم تجربة استثنائية لعشاق الجولف من جميع المستويات نوفر ثلاث ملاعب جولف رائعة متجر مجهز بأحدث المعدات فندق فاخر مطعم يقدم أشهى الأطباق، ومقهى للاستمتاع بأوقات الراحة. لدينا خمس حزم متنوعة تسمح لك باختيار الملعب والفندق والأنشطة التي تناسب احتياجاتك. بالإضافة إلى ذلك، يتضمن المنتجع ناديين يوفران أنشطة متنوعة مثل ساحة تدريب مضاءةدروس جولف احترافية تدريب رقمي متقدم وخدمة مساعدة متميزة نحن هنا لنقدم لك تجربة جولف لا تُنسى في أجواء مريحة وممتعة</p>
+    </div>
+</div>
+<!-- نهاية قسم "نبذة عنا" -->
+<!-- بداية قسم المعرض -->
+<div class="gallery" id="gallery">
+    <h1 class="gallery-title">معرض الصور</h1>
+    <!-- صندوق صورة 1 -->
+    <div class="gallery-box">
+        <img src="3.png" alt="صورة 1">
+        <p>الحزم المخصصة والعروض </p>
+        <button onclick="location.href='five rounds.html'">التعرف على المزيد </button>
+    </div>
+    <!-- صندوق صورة 2 -->
+    <div class="gallery-box">
+        <img src="4.png" alt="صورة 2">
+        <p>الجولة الثلاثية </p>
+        <button onclick="location.href='five rounds.html'">التعرف على المزيد </button>
+    </div>
+    <!-- صندوق صورة 3 -->
+    <div class="gallery-box">
+        <img src="7.png" alt="صورة 3">
+        <p>استراحة استجمام </p>
+        <button onclick="location.href='five rounds.html'">التعرف على المزيد </button>
+    </div>
+<!-- نهاية قسم المعرض -->
+<div class="footer">
+    <p>منتجع قولف هول ان ون </p>
+    <p>  العنوان المنتجع  : البرتغال </p>
+    <p> رقم التواصل :0774637284</p>
+    <p>تابعونا على: 
+        <a href="#" style="color: white;">Facebook</a> |
+        <a href="#" style="color: white;">Twitter </a> | 
+        <a href="#" style="color: white;">Instagram </a>
+    </p>
+    <a href="mailto:info@golfresort.com" class="contact-button">تواصل معنا</a>
+    <p>&copy; 2025 منتجع قولف هول ان ون . جميع الحقوق محفوظة.</p>
+    <P>  ملك مهند القعقاع </P>
+</div>
+<button id="toggleButton">dark</button>
+
+<script>
+  // الحصول على الزر
+  const toggleButton = document.getElementById("toggleButton");
+
+  // إضافة وظيفة تبديل الوضع
+  toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode"); // تبديل بين إضافة وحذف فئة "dark-mode"
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>five rounds</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            font-size: 16px;
+        }
+        .background-section {
+            background-image: url('55 .png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #15411296;
+            padding: 10px 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(204, 200, 200, 0.1);
+            z-index: 1000;
+        }
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+        .nav-links {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .nav-links a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+            text-align: rtl;
+        }
+        .nav-links a:hover {
+            color: rgb(10, 207, 69);
+            transform: scale(1.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .hero-section {
+            margin-top: 50px; /* تقليل المسافة لرفع الصور والنصوص */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hero-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .hero-item img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin-left: 20px;
+        }
+        .hero-item .text {
+            max-width: 400px;
+            text-align: right;
+        }
+        .contact-section {
+            margin-top: 40px; /* إضافة مسافة بين الأقسام */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .contact-item h3 {
+            margin-bottom: 20px;
+        }
+        .contact-item input, .contact-item textarea, .contact-item button {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contact-item button {
+            background-color: #15411296;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-item button:hover {
+            background-color: #0a7d3f;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="2.png" alt="شعار الشركة" class="logo">
+        <div class="nav-links">
+            <a href="hom .html">Home</a> <!-- رابط الصفحة الرئيسية -->
+            <a href="activities.html"> Activities </a> 
+            <a href="utilities.html">utilities </a> 
+            <a href="five rounds.html">  Five rounds </a>
+            <a href="contact.html"> contact </a>
+        </div>
+    </div>
+    <div class="background-section"></div>
+    <div class="hero-section">
+        <div class="hero-item">
+            <img src="7.png" alt="Image 1">
+            <div class="text">
+                <h3>الجولة الثلاثية</h3>
+                <p>يقدم منتجع هول ان ون الجولة الثلاثية وهي التي تقدم إقامة لمدة ليلتين في غرفة مزدوجة مع وجبة إفطار وتقديم ثلاث جولات 18 حفرة تشمل خوض جولة واحدة في ملعب سي فيو الشهير إن وجدت، وتقديم تأجير مجاني للعربات وخصم 20% لمتجر المحترفين.</p>
+            </div>
+        </div>
+        <div class="hero-item">
+            <img src="3.png" alt="Image 2">
+            <div class="text">
+                <h3>خمس جولات</h3>
+                <p>يقدم منتجع هول ان ون خمس جولات وهي إقامة كاملة لمدة خمس أيام في جناح فاخر وتقديم خمس جولات 18 حفرة وجولة واحدة مضمونة في ملعب سي فيو الشهير وجلسة تدريب رقمي.</p>
+            </div>
+        </div>
+        <div class="hero-item">
+            <img src="4.png" alt="Image 3">
+            <div class="text">
+                <h3>الاستراحة والاستجمام</h3>
+                <p>يقدم المنتجع جولة الاستراحة والاستجمام التي تتضمن إقامة ليلية واحدة مع وجبة إفطار كاملة، تناول العشاء في أي من مطاعم المنتجع، والوصول إلى الملاعب وتأجير نادي مجاني.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <div class="contact-item">
+            <h3>حزمة الاتصال بالشركة</h3>
+            <p>للأشخاص الذين يرغبون في الاستفسار عن الخدمات واختيار الحزمة المناسبة لهم، يرجى ملء النموذج أدناه للاتصال بنا وتحديد موعد للاستشارة:</p>
+            <input type="text" placeholder="اسمك">
+            <input type="email" placeholder="بريدك الإلكتروني">
+            <textarea placeholder="استفسارك"></textarea>
+            <button>إرسال</button>
+        </div>
+    </div>
+</body>
+</html>

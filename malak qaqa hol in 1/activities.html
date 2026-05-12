@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <style>
+       
+       body, html {
+            margin: 0; /* إزالة الهوامش */
+            padding: 0; /* إزالة الحشوات */
+            height: 100%; /* ضبط ارتفاع الصفحة إلى 100% */
+            font-family: Arial, sans-serif; /* ضبط نوع الخط */
+            background-color: #2a86131f; /* تغيير لون الخلفية إلى لون أفتح */
+        }
+        .popup-overlay.visible {
+            display: block; /* إظهار الطبقة عند إضافة الفئة 'visible' */
+        }
+        body {
+            font-size: 16px;
+        }
+        .btn-container {
+            position: fixed; /* يضمن بقاء الأزرار في مكانها عند التمرير */
+            top: 50%; /* يضع الأزرار في منتصف الجهة اليمنى رأسياً */
+            right: 0; /* يضع الأزرار في أقصى الجهة اليمنى */
+            transform: translateY(-50%); /* لضبط موقع الأزرار رأسياً */
+        }
+        .btn {
+            background-color: rgb(137, 224, 55); /* لون الخلفية الأخضر */
+            color: white; /* لون النص الأبيض */
+            border: none; /* إزالة الحدود */
+            padding: 10px 10px; /* المسافة الداخلية */
+            cursor: pointer; /* شكل المؤشر عند التمرير فوق الزر */
+            margin: 1px; /* المسافة الخارجية */
+        }
+        .btn:hover {
+            opacity: 0.8; /* خفض الشفافية عند التمرير */
+        }
+        .navbar {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            background-color: #15411296; 
+            padding: 10px 10px; 
+            position: fixed; 
+            top: 0; /* ضبط الشريط في أعلى الصفحة */
+            width: 100%;  /* ضبط عرض الشريط ليتناسب مع عرض الصفحة */
+            box-shadow: 0 2px 4px rgba(204, 200, 200, 0.1); /* إضافة ظل للشريط */
+            z-index: 1000; /* تحديد ترتيب الز-index لضمان بقاء الشريط فوق جميع العناصر الأخرى */
+        }
+
+        .logo {
+            width: 70px; /* عرض الشعار */
+            height: 70px; /* ارتفاع الشعار */
+            border-radius: 50%; /* جعل الشعار دائري الشكل */
+        }
+
+        .nav-links a {
+            color: rgb(255, 255, 255); /* ضبط لون الروابط */
+            text-decoration: none; /* إزالة التزيين عن النص */
+            padding: 0 15px; /* إضافة حشوات للروابط */
+            transition: color 0.3s; /* ضبط تأثير الانتقال على اللون */
+            text-align: rtl;
+        }
+
+        .nav-links a:hover {
+            color: rgb(40, 218, 64); /* لون الروابط عند مرور المؤشر */
+            transform: scale(1.2); /* تكبير النص عند مرور المؤشر */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* إضافة ظل للنص */
+        }
+        .container {
+            margin-top: 100px;
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .activity {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            width: 50%; /* تصغير عرض المربع إلى 50% */
+            margin: 20px auto; /* توسيط المربع في الصفحة */
+        }
+        .activity:hover {
+            transform: translateY(-5px);
+        }
+        .activity img {
+            width: 100%; /* عرض الصور بالحجم الكامل داخل المربع */
+            max-width: 100%; /* ضمان أن الصور تأخذ 100% من عرض المربع */
+            border-bottom: 1px solid #ddd;
+        }
+        .activity-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .activity h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .activity p {
+            color: #777;
+            margin: 10px 0 0;
+        }
+        body {
+      background-image: url('C:\Users\user\Desktop\malak qaqa hol in 1\خلفية لصفحة التواصل.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="2.png" alt="شعار الشركة" class="logo">
+        <div class="nav-links">
+            <a href="hom .html">Home</a> <!-- رابط الصفحة الرئيسية -->
+            <a href="activities.html"> Activities </a> 
+            <a href="utilities.html">utilities </a> 
+            <a href="five rounds.html">  Five rounds </a>
+            <a href="contact.html"> contact </a>
+            
+        </div>
+    </div>
+    <div class="container">
+        <div class="activity">
+            <img src="d3.png" alt="دروس جولف">
+            <div class="activity-content">
+                <h2>دروس جولف</h2>
+                <p>دروس الجولف تقدم تعليمات مهنية لجميع المستويات من المبتدئين إلى المحترفين لتعزيز مهاراتهم في الجولف.</p>
+            </div>
+        </div>
+        <div class="activity">
+            <img src="s1.png" alt="ساحة تدريب مضاءة">
+            <div class="activity-content">
+                <h2>ساحة تدريب مضاءة</h2>
+                <p>ساحة التدريب المضاءة توفر بيئة مثالية للتدريب الليلي على مهارات الجولف مع إضاءة حديثة تتيح للاعبين تحسين أدائهم في أي وقت من اليوم.</p>
+            </div>
+        </div>
+        <div class="activity">
+            <img src="t1.png" alt="تدريب رقمي">
+            <div class="activity-content">
+                <h2>تدريب رقمي</h2>
+                <p>التدريب الرقمي الذي يقدمه المنتجع يتيح للضيوف تحسين مهاراتهم في الجولف عبر استخدام تقنيات حديثة وتطبيقات مخصصة توفر تجربة تدريبية متكاملة.</p>
+            </div>
+        </div>
+        <div class="activity">
+            <img src="k1.png" alt="خدمة المساعدة على حمل أدوات الجولف">
+            <div class="activity-content">
+                <h2>خدمة المساعدة على حمل أدوات الجولف</h2>
+                <p>خدمة المساعدة على حمل أدوات الجولف في المنتجع توفر راحة إضافية للضيوف عبر تقديم دعم مخصص لنقل المعدات بسهولة ويسر لضمان تجربة جولف ممتعة وخالية من المتاعب.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
